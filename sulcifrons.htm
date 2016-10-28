@@ -1,0 +1,227 @@
+<!DOCTYPE html><html><head>
+<TITLE>Sydney hylaeine bees</TITLE>
+<style>
+.actionbar {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+}
+
+.icon {
+	position: absolute;
+	top: 7px;
+	margin-left: 5%;
+}
+
+.previous {
+	position: absolute;
+	top: 15px;
+	margin-left: 1%;
+}
+
+.maintitle {
+	position: absolute;
+	top: 15px;
+	margin-left: 15%;
+	font-family: Arial;
+	font-size: 250%;
+	background-color:#6AAFFD;
+}
+
+.container {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+	height: 452px;
+	overflow: scroll;
+}
+
+.scrollItem {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 4524px;
+	padding-top: 2px;
+	border: 4px solid gray;
+}
+
+.paragraph {
+	width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Helvetica;
+	font-size: 180%;
+	font-weight: normal;
+}
+
+.buttons {
+	position: relative;
+	width: 800px;
+	height: 30px;
+	margin: auto;
+	font-family: Helvetica;
+	font-size:120%;
+}
+
+.details {
+	position: absolute;
+	margin-left: 0;
+	text-align: center;
+	background-color:#6AAFFD;
+	border: 2px solid white;
+	width: 300px;
+	padding: 2px;
+}
+
+.distrib {
+	position: absolute;
+	text-align: center;
+	margin-left: 490px;
+	background-color:#000000;
+	width: 300px;
+	border: 2px solid white;
+	padding: 2px;
+}
+td	{
+	text-align:left;
+	padding-left: 10px;
+}
+.gradstyle {
+    display: none;
+    position: fixed;
+    z-index: 2; 
+    padding: 0px 10px 10px 10px; 
+    left: 30%;
+    top: 0px;
+    width: 600px; 
+    height: 800px;
+    font-size: 150%;
+    font-family: Arial;
+    color: #000000;
+    background-color: #FFFFFF; 
+    align-content: center;
+}
+.propstyle {
+    display: none;
+    position: fixed;
+    z-index: 2; 
+    padding: 0px 10px 10px 10px; 
+    left: 30%;
+    top: 0px;
+    width: 600px; 
+    height: 700px;
+    font-size: 150%;
+    font-family: Arial;
+    color: #000000;
+    background-color: #FFFFFF; 
+    align-content: center;
+}
+
+</style>
+<script>
+function switchpage() {
+	document.location.assign("sulcifronsmap.htm")
+}
+function home() {
+	document.location.assign("main.htm")
+}
+</script>
+
+</HEAD>
+<body text="#FFFFFF" link="#409000" bgcolor="#00000">
+
+<P>
+<div class="actionbar"><img src = "actionbar.png">
+<div class="previous"><img src="ic_action_previous_item.png" onclick="home()"></div><div class="icon"><img src="myst.png"></div><div class="maintitle">masked bee</div></div>
+<p><div class="buttons"><span class="details">DETAILS</span><span class="distrib" onclick="switchpage()">DISTRIBUTION</span>
+</div></p>
+<script>
+var n =new Array()
+var filename = new Array()
+var sp = new Array()
+</script>
+
+<script>
+	document.write("<div class='container'><div class='scrollItem'>")
+	for (var i=1;i<8;i++){
+		filename[i] = "sulcifrons"+i+".jpg"
+		document.write ("<img src="+filename[i]+" hspace='2'>")
+	}
+	document.write("</div></div>")
+
+function showG () {
+		document.getElementById("gradulus").style.display="block";
+		}
+function showP () {
+		document.getElementById("propodeum").style.display="block";
+		}
+
+function closeFunc(n) {
+		if (n==1) {grad.style.display="none";}
+		if (n==2) {prop.style.display="none";}
+	}
+</script>
+	<div id="gradulus" class="gradstyle">
+	<p><img src="gradulus.jpg" hspace='15'></p>
+	<p>Each tergum, except, the first has a gradulus which is usually hidden beneath the tergum in front. In <i>Meroglossa</i> species the gradulus of tergum 2 is not hidden. (The plural of tergum is terga.)</p>
+	</div>
+	<div id="propodeum" class="propstyle">
+	<p><img src="propodeum3.jpg" hspace='15'></p>
+	<p>The propodeum is the section of the body immediately in front of the constriction. The horizontal upper surface is the area that is diagnostic for females, and the species shown, <i>Meroglossa itamuca</i>, has coarse longitudinal ridges known as rugae. </p>
+	</div>
+
+</script>
+	<div class="paragraph">
+	<p style = "color:yellow; font-size:150%; font-style:italic; font-weight:bold;">Meroglossa sulcifrons</p>
+	<p style="font-size:120%;">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	<span style="font-weight:bold; ">Size</span>
+	<BR>female 10 mm; male 8.5 mm
+	<p><span style="font-weight:bold;">Identifying Characteristics</span>
+	<BR>A moderately large species with yellow marking on the back. The male is readily identified by the face marks. The female is very like <i>Meroglossa itamuca</i> but is distinguished by the striate <span style="color:#6AAFFD;" onclick="showP()">propodeum</span>, which has finer lines than that for <i>Meroglossa itamuca</i>. </p>
+	<p><span style="font-weight:bold;">Distinctive Features</span>
+	<BR>Like the other <i>Meroglossa</i> species, the female has the <span style="color:#6AAFFD;" onclick="showG()">gradulus</span> of tergum 2 exposed. The male has white face marks and the depressions of the face contain only small pale areas.</p>
+	<p><span style="font-weight:bold;">Flower Visiting Records</span>
+	<p><table border="0" style="width:100%;font-style:italic;" ><tr><td>Daviesia sp.</td><td>Eucalyptus sp.</td><td>Grevillea speciosa</td></tr>
+<tr><td>Leptospermum sp.</td><td>Pultenaea flexilis</td><td>Xanthorrhoea spp.</td></tr>        				  </table></p>
+	<p><span style="font-weight:bold;">Taxonomy</span>
+	<table border="1" style="width:100%;">
+	  <tr>
+	    <td style="width:200px">Phylum:</td>
+	    <td style="width:1100px">Arthropoda</td>
+	  </tr>
+	  <tr>
+	    <td>Class:</td>
+	    <td>Insecta</td>
+	  </tr>
+	  <tr>
+	    <td>Order:</td>
+	    <td>Hymenoptera</td>
+	  </tr>
+	  <tr>
+	    <td>Family:</td>
+	    <td>Colletidae</td>
+	  </tr>
+	  <tr>
+	    <td>Genus:</td>
+	    <td><span style="font-style:italic;">Meroglossa</span></td>
+	  </tr>
+	  <tr>
+	    <td>Subgenus:</td>
+	    <td><span style="font-style:italic;"></span></td>
+	  </tr>
+	  <tr>
+	    <td>Species:</td>
+	    <td><span style="font-style:italic;">sulcifrons</span></td>
+	  </tr>
+	</table>
+</p></div>
+<script>
+var grad = document.getElementById('gradulus');
+var prop = document.getElementById('propodeum');
+grad.onclick = function() {closeFunc(1)};
+prop.onclick = function() {closeFunc(2)};
+</script>
+
+</BODY></HTML>
