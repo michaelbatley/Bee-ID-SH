@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html xmlns:Content-Security-Policy="http://www.w3.org/1999/xhtml">
+<head lang="en">
+<title>Sydney hylaeine bees</title>
+<!--[if IE]><link rel="shortcut icon" href="shortcut.ico"><![endif]-->
+<meta charset="UTF-8">
+<meta Content-Security-Policy: script-src = "self">
+<meta name="viewport" content="user-scalable=yes, initial-scale=0.5, maximum-scale=4, minimum-scale=0.25, width=device-width">
+<meta name="google" value="notranslate">
+<style>
+
+.checkbox {
+	display: inline-block;
+	cursor: pointer;
+	width: 360px;
+	bottom: 0px;
+	font-size: 24px; margin-right:10px; line-height:30px;
+}
+
+input[type=checkbox] {
+ display:none;	
+}
+
+.checkbox::after {
+	content: "";
+	display: inline-block;
+	float: right;
+	width: 28px;
+	height: 28px;
+	background-color: #6AAFFD;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 5px;
+}
+
+input[type=checkbox]:checked + .checkbox::after {
+	content: "\2713";
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:thicker;
+	font-size: 28px;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1; 
+    padding-top: 0px;
+    left: 0;
+    top: 100px;
+    width: 700px; 
+    height: 1200px;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0); 
+}
+
+.modal-content {
+    background-color: #000000;
+    font-size: 150%;
+    font-family: Arial;
+    color: #FFFFFF;
+    margin:left;
+    padding: 20px 0 20px 0;
+    border: none;
+    width: 400px;
+    height: 1150px
+}
+
+.button {
+    position: relative;
+    margin-left: 120px;
+    background-color: #202020;
+    width: 130px;
+    font-size: 100%;
+    padding:5px 0px 5px 0px;
+    border: none;
+}
+
+.button:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.actionbar {
+	position: relative;
+	margin-left: none;
+	width: 1300px;
+}
+
+.icon {
+	position: absolute;
+	width: 64px;
+	top: 7px;
+	margin-left: 70px;
+}
+
+.maintitle {
+	position: absolute;
+	top: 15px;
+	font-family: Arial;
+	font-size: 250%;
+	margin-left: 15%;
+	background-color:#6AAFFD;
+}
+
+.sex  {
+	position: absolute;
+	top: 15px;
+	margin-left: 65%;
+}
+
+.help {
+	position: absolute;
+	top: 15px;
+	margin-left: 90%;
+}
+
+.drawer {
+	position: absolute;
+	top: 25px;
+	margin-left: 2%;
+}
+
+.container {
+	width: 1300px;
+	display:block;
+	background-color: black;
+}
+
+.images {
+	display:block;
+	position: relative;
+	width: 1300px;
+	margin-left: none;
+	margin-right: auto;
+	border: 0;
+}
+
+.caption {
+	display: block;
+	position: absolute;
+	top: 325px;
+	width: 320px;
+	font-style: italic;
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+
+function jumpto(x) {
+	if (x<49) {document.location.assign(sp[x]+".htm")}
+	else {document.location.assign("heterapoides.htm")};
+}
+
+function openhelp() {
+	document.location.assign("help.htm");
+}
+
+function draw(sm,sx) {
+	var count=0;
+	var ok=true;
+	var chosen=new Array()
+	var subscript="";
+	var m = new Array();
+	var localmask = new Array();
+	if (sx=="m") {subscript = "m";
+		     	document.getElementById("sexicon").src="female.png";
+			document.getElementById("mf").innerHTML="males";
+				for (var i=1; i<mchcol.length;i++){
+    				m[i]=sm & (Math.pow(2,mchcol[i])-Math.pow(2,mchcol[i-1]));
+		     	}
+		     	for (var i=1; i<56;i++){
+		     		localmask[i]=mmask[i];
+		     	}
+		 }
+	else {subscript = "";
+		  	document.getElementById("sexicon").src="male.png";
+			document.getElementById("mf").innerHTML="females";
+				for (var i=1; i<chcol.length;i++){
+    				m[i]=sm & (Math.pow(2,chcol[i])-Math.pow(2,chcol[i-1]));
+    			}
+		     	for (var i=1; i<56;i++){
+		     		localmask[i]=mask[i];
+		     	}
+	}
+	document.write("<div class='images'>");
+	for (var i=1;i<56;i++){
+		ok=true;
+		for (var j=1;j<m.length;j++){
+			if ((m[j]!=0)&&((m[j]&localmask[i])==0)) {ok=false};}
+		if (ok) {filename[i] = ""+sp[i]+ subscript +".jpg";
+				document.write ("<img src='"+filename[i]+"' onclick='jumpto("+ i +")'>&nbsp;");
+				count = count + 1;
+				chosen[count]=i;}
+				if (count==4||i==55) {
+					document.write("<BR>");
+					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(j-1)*322+"px;'>"+n[chosen[j]]+"</span>");}
+				count = 0;
+				document.write("<BR><BR></div>");
+				document.write("<div class='images'>");
+			};
+	};
+	document.write ("</div>");
+}
+
+function populateDrawer(){
+	colcount = 1;
+	document.write("<div style='background-color:#000000'>");
+    if (sex =="f"){
+      for (var j=1; j<20;j++){document.write("<p><input type='checkbox' id='par"+j+"'><label for='par"+j+"' class='checkbox'>"+ch[j]+"</label></p>");
+      						  if (chcol[colcount]==j){
+      						  						if (colcount%2){
+      						  										document.write("</div><div style='background-color:#303030'>");
+      						  										} else {
+      						  										document.write("</div><div style='background-color:#000000'>")
+      						  										}
+      						  						colcount++;
+      						  						}
+      						  }
+      }
+	else {
+      for (var j=1; j<18;j++){document.write("<p><input type='checkbox' id='par"+j+"'><label for='par"+j+"' class='checkbox'>"+mch[j]+"</label></p>");
+      						  if (mchcol[colcount]==j){
+      						  						if (colcount%2){
+      						  										document.write("</div><div style='background-color:#303030'>");
+      						  										} else {
+      						  										document.write("</div><div style='background-color:#000000'>")
+      						  										}
+      						  						colcount++;
+      						  						}
+      						  }
+      }
+	document.write("</div>");
+  }
+
+function nofile(){
+}
+
+</script>
+<script type="text/javascript" src="listen.js"></script>
+<script type="text/javascript">
+var n =new Array()
+var filename = new Array()
+var sp = new Array()
+var mask = new Array()
+var mmask = new Array()
+var ch = new Array()
+var chcol = new Array()
+var mch = new Array()
+var mchcol = new Array()
+var sex = new String
+</script>
+<script type="text/javascript"  SRC="names.js"></script>
+<script type="text/javascript"  SRC="species.js"></script>
+<script type="text/javascript"  SRC="masks.js"></script>
+<script type="text/javascript"  SRC="malemasks.js"></script>
+<script type="text/javascript"  SRC="chars.js"></script>
+<script type="text/javascript"  SRC="malechars.js"></script>
+<script type="text/javascript">
+!localStorage && (l = location, p = l.pathname.replace(/(^..)(:)/, "$1$$"), (l.href = l.protocol + "//127.0.0.1" + p));
+if(typeof(Storage) !== "undefined") {
+	searchmask = localStorage.getItem("storedmask");
+	searchmaskm = localStorage.getItem("storedmaskm");
+	if (localStorage.getItem("storedsex") == null) {localStorage.setItem("storedsex","f")};
+	sex = localStorage.getItem("storedsex");
+} else {
+    alert("Sorry, your browser does not support data storage");
+};
+</script>
+
+
+</HEAD>
+<body style="background-color:#000000; color:#FFFFFF; margin: auto;">
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+	<button id="clear" class="button" style="color:#6AAFFD;"><b>clear all</b></button>
+<script type="text/javascript">
+populateDrawer();
+</script>
+    <button id="apply" class="button" style="color:#FFFFFF;"><b>apply</b></button>
+  </div>
+</div>
+
+<script type="text/javascript">
+var modal = document.getElementById('myModal');
+var submit = document.getElementsByClassName("button")[1];
+var clear = document.getElementsByClassName("button")[0];
+
+</script>
+
+<p>
+
+<div class="actionbar"><img src= "actionbar.png">
+<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div></div>
+<script type="text/javascript">
+if (sex=='f'){draw(searchmask,sex);}
+else {draw(searchmaskm,sex)};
+</script>
+</BODY>
+</HTML>
