@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head>
+<TITLE>Sydney hylaeine bees</TITLE>
+<style>
+.actionbar {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+}
+
+.icon {
+	position: absolute;
+	top: 7px;
+	margin-left: 5%;
+}
+
+.previous {
+	position: absolute;
+	top: 15px;
+	margin-left: 1%;
+}
+
+.maintitle {
+	position: absolute;
+	top: 15px;
+	margin-left: 15%;
+	font-family: Arial;
+	font-size: 250%;
+	background-color:#6AAFFD;
+}
+
+.container {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+	height: 452px;
+	overflow: scroll;
+}
+
+.scrollItem {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 4098px;
+	padding-top: 2px;
+	border: 4px solid gray;
+}
+
+.paragraph {
+	width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Helvetica;
+	font-size: 180%;
+	font-weight: normal;
+}
+
+.buttons {
+	position: relative;
+	width: 800px;
+	height: 30px;
+	margin: auto;
+	font-family: Helvetica;
+	font-size:120%;
+}
+
+.details {
+	position: absolute;
+	margin-left: 0;
+	text-align: center;
+	background-color:#6AAFFD;
+	border: 2px solid white;
+	width: 300px;
+	padding: 2px;
+}
+
+.distrib {
+	position: absolute;
+	text-align: center;
+	margin-left: 490px;
+	background-color:#000000;
+	width: 300px;
+	border: 2px solid white;
+	padding: 2px;
+}
+td	{
+	text-align:left;
+	padding-left: 10px;
+}
+
+</style>
+<script>
+function switchpage() {
+	document.location.assign("asperithoraxmap.htm")
+}
+function home() {
+	document.location.assign("main.htm")
+}
+</script>
+
+</HEAD>
+<body text="#FFFFFF" link="#409000" bgcolor="#00000">
+
+<P>
+<div class="actionbar"><img src = "actionbar.png">
+<div class="previous"><img src="ic_action_previous_item.png" onclick="home()"></div><div class="icon"><img src="myst.png"></div><div class="maintitle">masked bee</div></div>
+<p><div class="buttons"><span class="details">DETAILS</span><span class="distrib" onclick="switchpage()">DISTRIBUTION</span>
+</div></p>
+<script>
+var n =new Array()
+var filename = new Array()
+var sp = new Array()
+</script>
+
+<script>
+	document.write("<div class='container'><div class='scrollItem'>")
+	for (var i=1;i<8;i++){
+		filename[i] = "asperithorax"+i+".jpg"
+		document.write ("<img src="+filename[i]+" hspace='2'>")
+	}
+	document.write("</div></div>")
+</script>
+	<div class="paragraph">
+	<p style = "color:yellow; font-size:150%; font-style:italic; font-weight:bold;">Hylaeus (Prosopisteron) asperithorax</p>
+	<p style="font-size:120%;">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	<span style="font-weight:bold; ">Size</span>
+	<BR>female 4 mm; male 3.5 mm
+	<p><span style="font-weight:bold;">Identifying Characteristics</span>
+	<BR>A tiny black bee, female with small white face marks, male white to approximately the top of the clypeus.</p>
+	<p><span style="font-weight:bold;">Distinctive Features</span>
+	<BR>Males always have a black collar, as do many females, but some females have white on the collar. Polished areas behind the scapes of males can be seen with very close inspection. Females have small patches of hair on the sides of the abdomen that are revealed only in oblique lighting.</p>
+	<p><span style="font-weight:bold;">Flower Visiting Records</span>
+	<p><table border="0" style="width:100%;font-style:italic;" ><tr><td>Acacia spp.</td><td>Daviesia sp.</td><td>Goodenia spp.</td></tr>
+<tr><td>Hibbertia obtusifolia</td><td>Hypericum gramineum</td><td>Jacksonia scoparia</td></tr>
+<tr><td>Leptospermum spp.</td><td>Leucopogon virgatus</td><td>Melaleuca sp.</td></tr>
+<tr><td>Mirbelia platylobioides</td><td>Philotheca salsolifolia</td><td>Phyllota phylicoides</td></tr>
+<tr><td>Pultenaea spp.</td><td>Scaevola ramoisissima</td><td>Wahlenbergia spp.</td></tr>
+        				  </table></p>
+	<p><span style="font-weight:bold;">Taxonomy</span>
+	<table border="1" style="width:100%;">
+	  <tr>
+	    <td style="width:200px">Phylum:</td>
+	    <td style="width:1100px">Arthropoda</td>
+	  </tr>
+	  <tr>
+	    <td>Class:</td>
+	    <td>Insecta</td>
+	  </tr>
+	  <tr>
+	    <td>Order:</td>
+	    <td>Hymenoptera</td>
+	  </tr>
+	  <tr>
+	    <td>Family:</td>
+	    <td>Megachilidae</td>
+	  </tr>
+	  <tr>
+	    <td>Genus:</td>
+	    <td><span style="font-style:italic;">Hylaeus</span></td>
+	  </tr>
+	  <tr>
+	    <td>Subgenus:</td>
+	    <td><span style="font-style:italic;">Prosopisteron</span></td>
+	  </tr>
+	  <tr>
+	    <td>Species:</td>
+	    <td><span style="font-style:italic;">asperithorax</span></td>
+	  </tr>
+	</table>
+</p></div>
+</BODY></HTML>
