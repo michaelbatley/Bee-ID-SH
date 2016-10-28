@@ -1,0 +1,201 @@
+<!DOCTYPE html><html><head>
+<TITLE>Sydney hylaeine bees</TITLE>
+<style>
+.actionbar {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+}
+
+.icon {
+	position: absolute;
+	top: 7px;
+	margin-left: 5%;
+}
+
+.previous {
+	position: absolute;
+	top: 15px;
+	margin-left: 1%;
+}
+
+.maintitle {
+	position: absolute;
+	top: 15px;
+	margin-left: 15%;
+	font-family: Arial;
+	font-size: 250%;
+	background-color:#6AAFFD;
+}
+
+.container {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1300px;
+	height: 452px;
+	overflow: scroll;
+}
+
+.scrollItem {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 4154px;
+	padding-top: 2px;
+	border: 4px solid gray;
+}
+
+.paragraph {
+	width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Helvetica;
+	font-size: 180%;
+	font-weight: normal;
+}
+
+.buttons {
+	position: relative;
+	width: 800px;
+	height: 30px;
+	margin: auto;
+	font-family: Helvetica;
+	font-size:120%;
+}
+
+.details {
+	position: absolute;
+	margin-left: 0;
+	text-align: center;
+	background-color:#6AAFFD;
+	border: 2px solid white;
+	width: 300px;
+	padding: 2px;
+}
+
+.distrib {
+	position: absolute;
+	text-align: center;
+	margin-left: 490px;
+	background-color:#000000;
+	width: 300px;
+	border: 2px solid white;
+	padding: 2px;
+}
+td	{
+	text-align:left;
+	padding-left: 10px;
+}
+.propstyle {
+    display: none;
+    position: fixed;
+    z-index: 2; 
+    padding: 0px 10px 10px 10px; 
+    left: 30%;
+    top: 0px;
+    width: 700px; 
+    height: 840px;
+    font-size: 150%;
+    font-family: Arial;
+    color: #000000;
+    background-color: #FFFFFF; 
+    align-content: center;
+}
+
+</style>
+<script>
+function switchpage() {
+	document.location.assign("philoleucusmap.htm")
+}
+function home() {
+	document.location.assign("main.htm")
+}
+</script>
+
+</HEAD>
+<body text="#FFFFFF" link="#409000" bgcolor="#00000">
+
+<P>
+<div class="actionbar"><img src = "actionbar.png">
+<div class="previous"><img src="ic_action_previous_item.png" onclick="home()"></div><div class="icon"><img src="myst.png"></div><div class="maintitle">masked bee</div></div>
+<p><div class="buttons"><span class="details">DETAILS</span><span class="distrib" onclick="switchpage()">DISTRIBUTION</span>
+</div></p>
+<script>
+var n =new Array()
+var filename = new Array()
+var sp = new Array()
+</script>
+
+<script>
+	document.write("<div class='container'><div class='scrollItem'>")
+	for (var i=1;i<7;i++){
+		filename[i] = "philoleucus"+i+".jpg"
+		document.write ("<img src="+filename[i]+" hspace='2'>")
+	}
+	document.write("</div></div>")
+
+function showP () {
+		document.getElementById("propodeum").style.display="block";
+		}
+
+function closeFunc() {
+		prop.style.display="none";
+	}
+</script>
+	<div id="propodeum" class="propstyle">
+	<p><img src="propodeum4.jpg" hspace='15'></p>
+	<p>The propodeum is the section of the body immediately in front of the constriction.</p>
+	</div>
+
+	<div class="paragraph">
+	<p style = "color:yellow; font-size:150%; font-style:italic; font-weight:bold;">Hylaeus (Gnathoprosopoides) philoleucus</p>
+	<p style="font-size:120%;">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	<span style="font-weight:bold; ">Size</span>
+	<BR>female 4.5 mm; male 5 mm
+	<p><span style="font-weight:bold;">Identifying Characteristics</span>
+	<BR>Small black bees with short, blunt mandibles and white or pale cream face marks.</p>
+	<p><span style="font-weight:bold;">Distinctive Features</span>
+	<BR>Distinguished from species like <i>H. amiculinus</i>, <i>H. amiculiformis</i> or <i>H. amiculinus</i></p> not only by colour but also by the relatively smooth <span style="color:#6AAFFD;" onclick="showP()">propodeum</span>.
+	<p><span style="font-weight:bold;">Flower Visiting Records</span>
+	<p><table border="0" style="width:100%;font-style:italic;" ><tr><td>Angophora hispida</td><td>Callistemon citrinus</td><td>Eucalyptus sp.</td></tr>
+<tr><td>Kunzea ambigua</td><td>Leptospermum sp.</td><td>Lophostemon sp.</td></tr>        				  </table></p>
+	<p><span style="font-weight:bold;">Taxonomy</span>
+	<table border="1" style="width:100%;">
+	  <tr>
+	    <td style="width:200px">Phylum:</td>
+	    <td style="width:1100px">Arthropoda</td>
+	  </tr>
+	  <tr>
+	    <td>Class:</td>
+	    <td>Insecta</td>
+	  </tr>
+	  <tr>
+	    <td>Order:</td>
+	    <td>Hymenoptera</td>
+	  </tr>
+	  <tr>
+	    <td>Family:</td>
+	    <td>Colletidae</td>
+	  </tr>
+	  <tr>
+	    <td>Genus:</td>
+	    <td><span style="font-style:italic;">Hylaeus</span></td>
+	  </tr>
+	  <tr>
+	    <td>Subgenus:</td>
+	    <td><span style="font-style:italic;">Gnathoprosopoides</span></td>
+	  </tr>
+	  <tr>
+	    <td>Species:</td>
+	    <td><span style="font-style:italic;">philoleucus</span></td>
+	  </tr>
+	</table>
+</p></div>
+<script>
+var prop = document.getElementById('propodeum');
+prop.onclick = function() {closeFunc()};
+</script>
+
+</BODY></HTML>
