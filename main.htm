@@ -66,6 +66,50 @@ input[type=checkbox]:checked + .checkbox::after {
     height: 1150px
 }
 
+.sortPane {
+    display: none;
+    font-size:150%;
+    position: absolute;
+    z-index: 1; 
+    font-family: Arial;
+    color: #FFFFFF;
+    top: 100px;
+    right:10%;
+    padding: 20px 50px 20px 20px;
+    border: none;
+    width: 400px;
+    height: 1150px
+    overflow: auto; 
+    background-color: #000000; 
+}
+
+.searchPane {
+    display: none;
+    position: absolute;
+    z-index: 1; 
+    font-family: Arial;
+    color: #FFFFFF;
+    top: 100px;
+    right:30%;
+    padding: 20px 50px 20px 20px;
+    border: none;
+    width: 250px;
+    height: 1150px
+    overflow: auto; 
+    background-color: #000000; 
+
+}
+
+.allbutton {
+    position: relative;
+    margin-left: 50px;
+    background-color: #303030;
+    width: 150px;
+    font-size: 100%;
+    padding:5px 0px 5px 0px;
+    border: none;
+}
+
 .button {
     position: relative;
     margin-left: 120px;
@@ -113,13 +157,25 @@ input[type=checkbox]:checked + .checkbox::after {
 .help {
 	position: absolute;
 	top: 15px;
-	margin-left: 90%;
+	margin-left: 80%;
 }
 
 .drawer {
 	position: absolute;
 	top: 25px;
 	margin-left: 2%;
+}
+
+.search {
+	position: absolute;
+	top: 15px;
+	margin-left: 88%;
+}
+
+.sort {
+	position: absolute;
+	top: 15px;
+	margin-left: 95%;
 }
 
 .container {
@@ -149,7 +205,7 @@ input[type=checkbox]:checked + .checkbox::after {
 <script type="text/javascript">
 
 function jumpto(x) {
-	if (x<49) {document.location.assign(sp[x]+".htm")}
+	if ((x<17)||(x>23)) {document.location.assign(sp[x]+".htm")}
 	else {document.location.assign("heterapoides.htm")};
 }
 
@@ -159,7 +215,7 @@ function openhelp() {
 
 function draw(sm,sx) {
 	var count=0;
-	var ok=true;
+	var ok;
 	var chosen=new Array()
 	var subscript="";
 	var m = new Array();
@@ -185,14 +241,17 @@ function draw(sm,sx) {
 		     	}
 	}
 	document.write("<div class='images'>");
+	for (var i=0;i<56;i++){
+		allow[i]=sessionStorage.getItem("allow"+i);
+	}
 	for (var i=1;i<56;i++){
 		ok=true;
 		for (var j=1;j<m.length;j++){
-			if ((m[j]!=0)&&((m[j]&localmask[i])==0)) {ok=false};}
-		if (ok) {filename[i] = ""+sp[i]+ subscript +".jpg";
-				document.write ("<img src='"+filename[i]+"' onclick='jumpto("+ i +")'>&nbsp;");
+			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[i])==0)) {ok=false};};
+		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
+				document.write ("<img src='"+filename[i]+"' onclick='jumpto("+ mix[i] +")'>&nbsp;");
 				count = count + 1;
-				chosen[count]=i;}
+				chosen[count]=mix[i];}
 				if (count==4||i==55) {
 					document.write("<BR>");
 					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(j-1)*322+"px;'>"+n[chosen[j]]+"</span>");}
@@ -234,13 +293,11 @@ function populateDrawer(){
 	document.write("</div>");
   }
 
-function nofile(){
-}
-
 </script>
 <script type="text/javascript" src="listen.js"></script>
 <script type="text/javascript">
 var n =new Array()
+var fn = new Array()
 var filename = new Array()
 var sp = new Array()
 var mask = new Array()
@@ -249,27 +306,64 @@ var ch = new Array()
 var chcol = new Array()
 var mch = new Array()
 var mchcol = new Array()
+var sz = new Array()
+var allow = new Array()
+var sorted = new Array()
+var mix = new Array()
+mix[0]=-1;
+sorted[0]=-1;
+
 var sex = new String
+if(typeof(Storage) !== "undefined") {
+	searchmask = localStorage.getItem("storedmask");
+	searchmaskm = localStorage.getItem("storedmaskm");
+	sortmode = localStorage.getItem("storedmode");
+	if (localStorage.getItem("storedsex") == null) {localStorage.setItem("storedsex","f")};
+	if (localStorage.getItem("storedmode") == null) {localStorage.setItem("storedmode",0)};
+	sex = localStorage.getItem("storedsex");
+	mode = localStorage.getItem("storedmode");
+} else {
+    alert("Sorry, your browser does not support data storage");
+};
+
+if(typeof(Storage) !== "undefined") {
+	for (var i=1;i<58;i++){
+          if (sessionStorage.getItem("allow"+i) == null) {sessionStorage.setItem("allow"+i,"0")}
+	  else {allow[i] = sessionStorage.getItem("allow"+i)};
+        }
+} else {
+    alert("Sorry, your browser does not support data storage");
+}
+
+function allowAll(){
+    document.getElementById('searchFor').style.display = "none";
+    for (var i=0;i<n.length+1;i++){
+       sessionStorage.setItem("allow"+i,"0");       
+    }
+}
+
+function searchfunc(){
+    var text=document.getElementById("searchFor").elements[0].value;
+    var pattern = new RegExp(text);
+    var let ="";
+    for (var i=1;i<n.length+1;i++) {
+        var res = pattern.exec(fn[i]);
+	if (res==null) {let="1"} else {let="0"};
+        sessionStorage.setItem("allow"+i,let);
+    }
+    document.getElementById('searchFor').style.display = "none";
+}
+
 </script>
+
 <script type="text/javascript"  SRC="names.js"></script>
+<script type="text/javascript"  SRC="fullnames.js"></script>
 <script type="text/javascript"  SRC="species.js"></script>
+<script type="text/javascript"  SRC="sizes.js"></script>
 <script type="text/javascript"  SRC="masks.js"></script>
 <script type="text/javascript"  SRC="malemasks.js"></script>
 <script type="text/javascript"  SRC="chars.js"></script>
 <script type="text/javascript"  SRC="malechars.js"></script>
-<script type="text/javascript">
-!localStorage && (l = location, p = l.pathname.replace(/(^..)(:)/, "$1$$"), (l.href = l.protocol + "//127.0.0.1" + p));
-if(typeof(Storage) !== "undefined") {
-	searchmask = localStorage.getItem("storedmask");
-	searchmaskm = localStorage.getItem("storedmaskm");
-	if (localStorage.getItem("storedsex") == null) {localStorage.setItem("storedsex","f")};
-	sex = localStorage.getItem("storedsex");
-} else {
-    alert("Sorry, your browser does not support data storage");
-};
-</script>
-
-
 </HEAD>
 <body style="background-color:#000000; color:#FFFFFF; margin: auto;">
 
@@ -283,18 +377,53 @@ populateDrawer();
   </div>
 </div>
 
+<div id="sortBy" class="sortPane">
+ <div id="fullname">sort by full name<br><br></div>
+ <div id="specificname">sort ignoring genus<br><br></div>
+ <div id="size">sort by size</div>
+ </div>
+
+<form id="searchFor" class="searchPane">
+ <div>Search for<br><input type="text" size=25 maxlength=350 name="input" onFocus="this.select()"><input type=submit value = "submit" onClick="searchfunc()"><br><br><br></div>
+ <div id="useAll"><button class="allbutton" style="color:#FFFFFF;" onClick="allowAll()"><b>remove search</b></button></div>
+ </form>
+
 <script type="text/javascript">
 var modal = document.getElementById('myModal');
 var submit = document.getElementsByClassName("button")[1];
 var clear = document.getElementsByClassName("button")[0];
-
 </script>
 
 <p>
 
 <div class="actionbar"><img src= "actionbar.png">
-<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div></div>
+<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div><div class="search"><img id="search" src="ic_action_search.png"></div><div class="sort"><img id="sort" src="ic_action_sort.png"></div></div>
 <script type="text/javascript">
+for (var i=1;i<n.length+1;i++){
+    allow[i]="0";
+    mix[i] = i;
+    sorted[0]=-1;
+}
+if (mode==1){
+    for (var i=1;i<sp.length;i++){
+		sorted[i]=sp[i];
+		}
+    sorted.sort();   
+    for (var i=1;i<sp.length;i++){
+		mix[i]=sp.indexOf(sorted[i]);
+		}
+} 
+if (mode==2) {
+    sz[0]=9999;
+    for (var i=0;i<sp.length;i++){
+		sorted[i]=sz[i];
+		}
+    sorted.sort();
+    sorted.reverse();   
+    for (var i=1;i<sp.length;i++){
+		mix[i]=sz.indexOf(sorted[i]);
+		}
+} 
 if (sex=='f'){draw(searchmask,sex);}
 else {draw(searchmaskm,sex)};
 </script>
