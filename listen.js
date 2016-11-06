@@ -22,6 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("apply").addEventListener("click", closeFunc);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("search").addEventListener("click", openSearch);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("sort").addEventListener("click", openSort);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("fullname").addEventListener("click", normalmode);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("specificname").addEventListener("click", sortbyspecific);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("size").addEventListener("click", sortbysize);
+});
+
 function openFunc() {
 	var s=1;
 	if (sex=='f'){var mask = localStorage.getItem("storedmask");
@@ -67,7 +87,7 @@ function sexChange() {
 	var sex = localStorage.getItem("storedsex");
 	if (sex == "m") {localStorage.setItem("storedsex","f");} 
 	if (sex == "f") {localStorage.setItem("storedsex","m");
- 			        document.getElementById("sexicon").src="female.png"; }
+ 			        document.getElementById("sexicon").src="images/female.png"; }
 	document.location.assign("main.htm");
 }
 
@@ -77,4 +97,27 @@ function openhelp() {
 
 function drawerFunc(){
 		document.getElementById('myModal').style.display = "none";
+}
+
+function openSearch(){
+    document.getElementById('searchFor').style.display = "block";
+}
+
+function openSort(){
+    document.getElementById('sortBy').style.display = "block";
+}
+
+function normalmode(){
+	localStorage.setItem("storedmode",0);
+	document.location.assign("main.htm");
+}
+
+function sortbyspecific(){
+	localStorage.setItem("storedmode",1);
+	document.location.assign("main.htm");
+}
+
+function sortbysize(){
+	localStorage.setItem("storedmode",2);
+	document.location.assign("main.htm");
 }
