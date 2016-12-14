@@ -101,6 +101,7 @@ function drawerFunc(){
 
 function openSearch(){
     document.getElementById('searchFor').style.display = "block";
+    document.getElementById('input').focus();
 }
 
 function openSort(){
