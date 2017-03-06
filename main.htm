@@ -247,7 +247,7 @@ function draw(sm,sx) {
 	for (var i=1;i<56;i++){
 		ok=true;
 		for (var j=1;j<m.length;j++){
-			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[i])==0)) {ok=false};};
+			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[mix[i]])==0)) {ok=false};};
 		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
 				document.write ("<img src='"+filename[i]+"' onclick='jumpto("+ mix[i] +")'>&nbsp;");
 				count = count + 1;
