@@ -44,11 +44,11 @@ input[type=checkbox]:checked + .checkbox::after {
 .modal {
     display: none;
     position: absolute;
-    z-index: 1; 
+    z-index: 2; 
     padding-top: 0px;
     left: 0;
     top: 100px;
-    width: 700px; 
+    width: 420px; 
     height: 1200px;
     overflow: auto; 
     background-color: rgba(0,0,0,0); 
@@ -66,6 +66,17 @@ input[type=checkbox]:checked + .checkbox::after {
     height: 1150px
 }
 
+.modal-mask {
+    display:none;
+    z-index: 1; 
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height=100%;
+    background-color: rgba(0,0,0,0.5); 
+}
+
 .sortPane {
     display: none;
     font-size:150%;
@@ -74,10 +85,10 @@ input[type=checkbox]:checked + .checkbox::after {
     font-family: Arial;
     color: #FFFFFF;
     top: 100px;
-    right:10%;
+    right:0;
     padding: 20px 50px 20px 20px;
     border: none;
-    width: 400px;
+    width: 250px;
     height: 1150px
     overflow: auto; 
     background-color: #000000; 
@@ -90,7 +101,7 @@ input[type=checkbox]:checked + .checkbox::after {
     font-family: Arial;
     color: #FFFFFF;
     top: 100px;
-    left: 950px;
+    right: 0;
     padding: 20px 50px 20px 20px;
     border: none;
     width: 250px;
@@ -128,8 +139,10 @@ input[type=checkbox]:checked + .checkbox::after {
 
 .actionbar {
 	position: relative;
-	margin-left: none;
-	width: 1300px;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+	background-color:#6AAFFD;
 }
 
 .icon {
@@ -151,13 +164,13 @@ input[type=checkbox]:checked + .checkbox::after {
 .sex  {
 	position: absolute;
 	top: 15px;
-	margin-left: 65%;
+	margin-left: 55%;
 }
 
 .help {
 	position: absolute;
 	top: 15px;
-	margin-left: 80%;
+	margin-left: 70%;
 }
 
 .drawer {
@@ -166,10 +179,10 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left: 2%;
 }
 
-.search {
+.searchicon {
 	position: absolute;
 	top: 15px;
-	margin-left: 88%;
+	margin-left:85%;
 }
 
 .sort {
@@ -187,10 +200,8 @@ input[type=checkbox]:checked + .checkbox::after {
 .images {
 	display:block;
 	position: relative;
-	width: 1300px;
-	margin-left: none;
-	margin-right: auto;
-	border: 0;
+	width: 100%;
+        top: 5px;
 }
 
 .caption {
@@ -199,7 +210,7 @@ input[type=checkbox]:checked + .checkbox::after {
 	top: 325px;
 	width: 320px;
 	font-style: italic;
-	text-align: center;
+	align-content: center;
 }
 </style>
 <script type="text/javascript">
@@ -218,6 +229,7 @@ function draw(sm,sx) {
 	var ok;
 	var chosen=new Array()
 	var subscript="";
+	var leftmarg = (screen.width -1275)/2;
 	var m = new Array();
 	var localmask = new Array();
 	if (sx=="m") {subscript = "m";
@@ -240,9 +252,9 @@ function draw(sm,sx) {
 		     		localmask[i]=mask[i];
 		     	}
 	}
-	document.write("<div class='images'>");
+	document.write("<div class='images' style='left:"+leftmarg+"px;'>");
 	for (var i=0;i<56;i++){
-		allow[i]=sessionStorage.getItem("allow"+i);
+		allow[i]=sessionStorage.getItem("allow"+ i);
 	}
 	for (var i=1;i<56;i++){
 		ok=true;
@@ -254,10 +266,10 @@ function draw(sm,sx) {
 				chosen[count]=mix[i];}
 				if (count==4||i==55) {
 					document.write("<BR>");
-					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(j-1)*322+"px;'>"+n[chosen[j]]+"</span>");}
+					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(100+(j-1)*322)+"px;'>"+n[chosen[j]]+"</span>");}
 				count = 0;
 				document.write("<BR><BR></div>");
-				document.write("<div class='images'>");
+				document.write("<div class='images' style='left:"+leftmarg+"px;'>");
 			};
 	};
 	document.write ("</div>");
@@ -344,7 +356,7 @@ function allowAll(){
 
 function searchfunc(){
     var text=document.getElementById("searchFor").elements[0].value;
-    var pattern = new RegExp(text);
+    var pattern = new RegExp(text,'i');
     var let ="";
     for (var i=1;i<n.length+1;i++) {
         var res = pattern.exec(fn[i]);
@@ -384,20 +396,25 @@ populateDrawer();
  </div>
 
 <form id="searchFor" class="searchPane">
- <div>Search for<br><input type="text" size=25 maxlength=350 name="input" onFocus="this.select()"><input type=submit value = "submit" onClick="searchfunc()"><br><br><br></div>
+ <div>Search for<br><input type="text" size=25 maxlength=350 id="input" onFocus="this.select()"><input type=submit value = "submit" onClick="searchfunc()"><br><br><br></div>
  <div id="useAll"><button class="allbutton" style="color:#FFFFFF;" onClick="allowAll()"><b>remove search</b></button></div>
  </form>
 
+<div id="modalOverlay" class="modal-mask">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+</div>
+
 <script type="text/javascript">
 var modal = document.getElementById('myModal');
+var modMask = document.getElementById('modalOverlay');
 var submit = document.getElementsByClassName("button")[1];
 var clear = document.getElementsByClassName("button")[0];
 </script>
 
 <p>
 
-<div class="actionbar"><img src= "actionbar.png">
-<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div><div class="search"><img id="search" src="ic_action_search.png"></div><div class="sort"><img id="sort" src="ic_action_sort.png"></div></div>
+<div class="actionbar">
+<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div><div class="searchicon"><img id="search" src="ic_action_search.png"></div><div class="sort"><img id="sort" src="ic_action_sort.png"></div></div>
 <script type="text/javascript">
 for (var i=1;i<n.length+1;i++){
     allow[i]="0";

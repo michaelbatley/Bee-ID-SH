@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("size").addEventListener("click", sortbysize);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("modalOverlay").addEventListener("click", closeFunc);
+});
+
 function openFunc() {
 	var s=1;
 	if (sex=='f'){var mask = localStorage.getItem("storedmask");
@@ -53,9 +57,11 @@ function openFunc() {
 	};
 	var winopen = document.getElementById('myModal').style.display;
 	if (winopen=="none"){
-					document.getElementById('myModal').style.display = "block";}
+					document.getElementById('myModal').style.display = "block";
+					document.getElementById('modalOverlay').style.display = "block";}
 	else {
 					document.getElementById('myModal').style.display = "none";
+					document.getElementById('modalOverlay').style.display = "none";
 					document.location.reload(true);}
 };
 
@@ -71,6 +77,7 @@ function closeFunc() {
    if (sex=="f"){localStorage.setItem("storedmask", thismask);}
    	else {localStorage.setItem("storedmaskm", thismask);}
 	document.getElementById('myModal').style.display = "none";
+	document.getElementById('modalOverlay').style.display = "none";
 	document.location.reload(true);
 }
 
