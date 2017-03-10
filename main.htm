@@ -167,17 +167,62 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left: 55%;
 }
 
+.flares {
+	position: absolute;
+	top: 0;
+	transition: .5s ease;
+	opacity: 0;
+}
+
+.sex:hover .sex {
+	opacity: 0.5;
+}	
+
+.sex:hover .flares {
+	opacity: 0.5;
+}	
+
 .help {
 	position: absolute;
 	top: 15px;
 	margin-left: 70%;
 }
 
+.flareh {
+	position: absolute;
+	top: 0;
+	transition: .5s ease;
+	opacity: 0;
+}
+
+.help:hover .help {
+	opacity: 0.5;
+}
+
+.help:hover .flareh {
+	opacity: 0.5;
+}	
+
 .drawer {
 	position: absolute;
-	top: 25px;
-	margin-left: 2%;
+	top: 15px;
+	margin-left: 1%;
 }
+
+.flare {
+	position: absolute;
+	top: 0;
+	transition: .5s ease;
+	opacity: 0;
+}
+
+.drawer:hover .drawer {
+	opacity: 0.5;
+}	
+
+.drawer:hover .flare {
+	opacity: 0.5;
+}	
 
 .searchicon {
 	position: absolute;
@@ -185,23 +230,63 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left:85%;
 }
 
+.flaresch {
+	position: absolute;
+	top: 0;
+	transition: .5s ease;
+	opacity: 0;
+}
+
+.searchicon:hover .searchicon {
+	opacity: 0.5;
+}	
+
+.searchicon:hover .flaresch {
+	opacity: 0.5;
+}	
+
 .sort {
 	position: absolute;
 	top: 15px;
 	margin-left: 95%;
 }
 
+.flarest {
+	position: absolute;
+	top: 0;
+	transition: .5s ease;
+	opacity: 0;
+}
+
+.sort:hover .sort {
+	opacity: 0.5;
+}	
+
+.sort:hover .flarest {
+	opacity: 0.5;
+}	
+
 .container {
-	width: 1300px;
-	display:block;
+ 	position: relative;
+	width: 1500px;
+	margin: auto;
+	display: block;
+	overflow: scroll;
 	background-color: black;
+	border: 4px solid gray;
+}
+
+.scrollitem {
+	position: relative;
+	margin:inherit;
+	width: 1300px;
+	height: 3000px;
 }
 
 .images {
 	display:block;
 	position: relative;
-	width: 100%;
-        top: 5px;
+	margin: inherit;
 }
 
 .caption {
@@ -214,6 +299,14 @@ input[type=checkbox]:checked + .checkbox::after {
 }
 </style>
 <script type="text/javascript">
+
+function dim(x) {
+	x.style.opacity=0.8;
+}
+
+function undim(x) {
+	x.style.opacity=1;
+}
 
 function jumpto(x) {
 	if ((x<17)||(x>23)) {document.location.assign(sp[x]+".htm")}
@@ -229,7 +322,7 @@ function draw(sm,sx) {
 	var ok;
 	var chosen=new Array()
 	var subscript="";
-	var leftmarg = (screen.width -1275)/2;
+	var sh = screen.height-225;
 	var m = new Array();
 	var localmask = new Array();
 	if (sx=="m") {subscript = "m";
@@ -252,7 +345,7 @@ function draw(sm,sx) {
 		     		localmask[i]=mask[i];
 		     	}
 	}
-	document.write("<div class='images' style='left:"+leftmarg+"px;'>");
+	document.write("<div class='container' style = 'height: " + sh + "px'><div class='scrollitem'><div class='images'>");
 	for (var i=0;i<56;i++){
 		allow[i]=sessionStorage.getItem("allow"+ i);
 	}
@@ -261,7 +354,7 @@ function draw(sm,sx) {
 		for (var j=1;j<m.length;j++){
 			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[mix[i]])==0)) {ok=false};};
 		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
-				document.write ("<img src='"+filename[i]+"' onclick='jumpto("+ mix[i] +")'>&nbsp;");
+				document.write ("<img src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")'>&nbsp;");
 				count = count + 1;
 				chosen[count]=mix[i];}
 				if (count==4||i==55) {
@@ -269,10 +362,10 @@ function draw(sm,sx) {
 					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(100+(j-1)*322)+"px;'>"+n[chosen[j]]+"</span>");}
 				count = 0;
 				document.write("<BR><BR></div>");
-				document.write("<div class='images' style='left:"+leftmarg+"px;'>");
+				document.write("<div class='images'>");
 			};
 	};
-	document.write ("</div>");
+	document.write ("</div></div>");
 }
 
 function populateDrawer(){
@@ -414,7 +507,7 @@ var clear = document.getElementsByClassName("button")[0];
 <p>
 
 <div class="actionbar">
-<div class="drawer"><img id="drawer" src="ic_drawer.png" ></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"></div><div class="help"><img id="help" src="ic_action_help.png"></div><div class="searchicon"><img id="search" src="ic_action_search.png"></div><div class="sort"><img id="sort" src="ic_action_sort.png"></div></div>
+<div class="drawer"><img id="drawer" src="ic_drawer.png" ><div class="flare"><img id="flare" src="flare.png"></div></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"><div class="flares"><img id="flares" src="flare.png"></div></div><div class="help"><img id="help" src="ic_action_help.png"><div class="flareh"><img id="flareh" src="flare.png"></div></div><div class="searchicon"><img id="search" src="ic_action_search.png"><div class="flaresch"><img id="flaresch" src="flare.png"></div></div><div class="sort"><img id="sort" src="ic_action_sort.png"><div class="flarest"><img id="flarest" src="flare.png"></div></div></div>
 <script type="text/javascript">
 for (var i=1;i<n.length+1;i++){
     allow[i]="0";
