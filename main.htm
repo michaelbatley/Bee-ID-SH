@@ -167,18 +167,19 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left: 55%;
 }
 
-.flares {
+.flare {
 	position: absolute;
 	top: 0;
 	transition: .5s ease;
 	opacity: 0;
 }
 
-.sex:hover .sex {
-	opacity: 0.5;
-}	
+.sicon {
+	position: absolute;
+	opacity: 1;
+}
 
-.sex:hover .flares {
+.sex:hover .flare {
 	opacity: 0.5;
 }	
 
@@ -188,37 +189,26 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left: 70%;
 }
 
-.flareh {
+.hicon {
 	position: absolute;
-	top: 0;
-	transition: .5s ease;
-	opacity: 0;
+	opacity: 1;
 }
 
-.help:hover .help {
-	opacity: 0.5;
-}
-
-.help:hover .flareh {
+.help:hover .flare {
 	opacity: 0.5;
 }	
 
 .drawer {
 	position: absolute;
 	top: 15px;
+	display: block;
 	margin-left: 1%;
 }
 
-.flare {
+.dicon {
 	position: absolute;
-	top: 0;
-	transition: .5s ease;
-	opacity: 0;
+	opacity: 1;
 }
-
-.drawer:hover .drawer {
-	opacity: 0.5;
-}	
 
 .drawer:hover .flare {
 	opacity: 0.5;
@@ -230,20 +220,14 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left:85%;
 }
 
-.flaresch {
+.searchicon:hover .flare {
+	opacity: 0.5;
+}	
+
+.schicon {
 	position: absolute;
-	top: 0;
-	transition: .5s ease;
-	opacity: 0;
+	opacity: 1;
 }
-
-.searchicon:hover .searchicon {
-	opacity: 0.5;
-}	
-
-.searchicon:hover .flaresch {
-	opacity: 0.5;
-}	
 
 .sort {
 	position: absolute;
@@ -251,18 +235,12 @@ input[type=checkbox]:checked + .checkbox::after {
 	margin-left: 95%;
 }
 
-.flarest {
+.srticon {
 	position: absolute;
-	top: 0;
-	transition: .5s ease;
-	opacity: 0;
+	opacity: 1;
 }
 
-.sort:hover .sort {
-	opacity: 0.5;
-}	
-
-.sort:hover .flarest {
+.sort:hover .flare {
 	opacity: 0.5;
 }	
 
@@ -507,7 +485,13 @@ var clear = document.getElementsByClassName("button")[0];
 <p>
 
 <div class="actionbar">
-<div class="drawer"><img id="drawer" src="ic_drawer.png" ><div class="flare"><img id="flare" src="flare.png"></div></div><div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div><div class="sex"><img id="sexicon" src="male.png"><div class="flares"><img id="flares" src="flare.png"></div></div><div class="help"><img id="help" src="ic_action_help.png"><div class="flareh"><img id="flareh" src="flare.png"></div></div><div class="searchicon"><img id="search" src="ic_action_search.png"><div class="flaresch"><img id="flaresch" src="flare.png"></div></div><div class="sort"><img id="sort" src="ic_action_sort.png"><div class="flarest"><img id="flarest" src="flare.png"></div></div></div>
+<div class="drawer"><div class="flare"><img src="flare.png"></div><div class="dicon"><img id="drawer" src="ic_drawer.png"></div></div>
+<div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeines <span id="mf"></span></div>
+<div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="male.png"></div></div>
+<div class="help"><div class="flare"><img src="flare.png"></div><div class="hicon"><img id="help" src="ic_action_help.png"></div></div>
+<div class="searchicon"><div class="flare"><img src="flare.png"></div><div class="schicon"><img id="search" src="ic_action_search.png"></div></div>
+<div class="sort"><div class="flare"><img src="flare.png"></div><div class="srticon"><img id="sort" src="ic_action_sort.png"></div></div></div>
+
 <script type="text/javascript">
 for (var i=1;i<n.length+1;i++){
     allow[i]="0";
