@@ -353,11 +353,11 @@ function populateDrawer(){
       for (var j=1; j<20;j++){document.write("<p><input type='checkbox' id='par"+j+"'><label for='par"+j+"' class='checkbox'>"+ch[j]+"</label></p>");
       						  if (chcol[colcount]==j){
       						  						if (colcount%2){
-      						  										document.write("</div><div style='background-color:#303030'>");
-      						  										} else {
-      						  										document.write("</div><div style='background-color:#000000'>")
-      						  										}
-      						  						colcount++;
+			document.write("</div><div style='background-color:#303030'>");
+			} else {
+			document.write("</div><div style='background-color:#000000'>")
+			}
+colcount++;
       						  						}
       						  }
       }
@@ -365,11 +365,11 @@ function populateDrawer(){
       for (var j=1; j<18;j++){document.write("<p><input type='checkbox' id='par"+j+"'><label for='par"+j+"' class='checkbox'>"+mch[j]+"</label></p>");
       						  if (mchcol[colcount]==j){
       						  						if (colcount%2){
-      						  										document.write("</div><div style='background-color:#303030'>");
-      						  										} else {
-      						  										document.write("</div><div style='background-color:#000000'>")
-      						  										}
-      						  						colcount++;
+			document.write("</div><div style='background-color:#303030'>");
+			} else {
+			document.write("</div><div style='background-color:#000000'>")
+			}
+colcount++;
       						  						}
       						  }
       }
@@ -398,13 +398,13 @@ sorted[0]=-1;
 
 var sex = new String
 if(typeof(Storage) !== "undefined") {
-	searchmask = localStorage.getItem("storedmask");
-	searchmaskm = localStorage.getItem("storedmaskm");
-	sortmode = localStorage.getItem("storedmode");
-	if (localStorage.getItem("storedsex") == null) {localStorage.setItem("storedsex","f")};
-	if (localStorage.getItem("storedmode") == null) {localStorage.setItem("storedmode",0)};
-	sex = localStorage.getItem("storedsex");
-	mode = localStorage.getItem("storedmode");
+	searchmask = sessionStorage.getItem("storedmask");
+	searchmaskm = sessionStorage.getItem("storedmaskm");
+	sortmode = sessionStorage.getItem("storedmode");
+	if (sessionStorage.getItem("storedsex") == null) {sessionStorage.setItem("storedsex","f")};
+	if (sessionStorage.getItem("storedmode") == null) {sessionStorage.setItem("storedmode",0)};
+	sex = sessionStorage.getItem("storedsex");
+	mode = sessionStorage.getItem("storedmode");
 } else {
     alert("Sorry, your browser does not support data storage");
 };

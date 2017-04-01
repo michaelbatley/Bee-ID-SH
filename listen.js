@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openFunc() {
 	var s=1;
-	if (sex=='f'){var mask = localStorage.getItem("storedmask");
+	if (sex=='f'){var mask = sessionStorage.getItem("storedmask");
 			s=19;}
-	else {var mask = localStorage.getItem("storedmaskm");
+	else {var mask = sessionStorage.getItem("storedmaskm");
 		s=17;}
 	for (i=0; i<s; i++) {
 		if ((mask & Math.pow(2,i))>0) {document.getElementById("par"+(i+1)).checked=true;}
@@ -74,8 +74,8 @@ function closeFunc() {
 	thismask = thismask + Math.pow(2,i)
 	}
    }
-   if (sex=="f"){localStorage.setItem("storedmask", thismask);}
-   	else {localStorage.setItem("storedmaskm", thismask);}
+   if (sex=="f"){sessionStorage.setItem("storedmask", thismask);}
+   	else {sessionStorage.setItem("storedmaskm", thismask);}
 	document.getElementById('myModal').style.display = "none";
 	document.getElementById('modalOverlay').style.display = "none";
 	document.location.reload(true);
@@ -86,14 +86,14 @@ function clearFunc() {
 	if (sex=="f") {s=19} else {s=17};
 	for (i=0; i<s; i++) {
 		document.getElementById("par"+(i+1)).checked = false;
-		localStorage.setItem("storedmask", 0);
+		sessionStorage.setItem("storedmask", 0);
 	}
 }
 
 function sexChange() {
-	var sex = localStorage.getItem("storedsex");
-	if (sex == "m") {localStorage.setItem("storedsex","f");} 
-	if (sex == "f") {localStorage.setItem("storedsex","m");
+	var sex = sessionStorage.getItem("storedsex");
+	if (sex == "m") {sessionStorage.setItem("storedsex","f");} 
+	if (sex == "f") {sessionStorage.setItem("storedsex","m");
  			        document.getElementById("sexicon").src="images/female.png"; }
 	document.location.assign("main.htm");
 }
@@ -116,16 +116,16 @@ function openSort(){
 }
 
 function normalmode(){
-	localStorage.setItem("storedmode",0);
+	sessionStorage.setItem("storedmode",0);
 	document.location.assign("main.htm");
 }
 
 function sortbyspecific(){
-	localStorage.setItem("storedmode",1);
+	sessionStorage.setItem("storedmode",1);
 	document.location.assign("main.htm");
 }
 
 function sortbysize(){
-	localStorage.setItem("storedmode",2);
+	sessionStorage.setItem("storedmode",2);
 	document.location.assign("main.htm");
 }
