@@ -94,7 +94,7 @@ function sexChange() {
 	var sex = sessionStorage.getItem("storedsex");
 	if (sex == "m") {sessionStorage.setItem("storedsex","f");} 
 	if (sex == "f") {sessionStorage.setItem("storedsex","m");
- 			        document.getElementById("sexicon").src="images/female.png"; }
+ 			        document.getElementById("sexicon").src="female.png"; }
 	document.location.assign("main.htm");
 }
 
