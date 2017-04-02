@@ -275,6 +275,8 @@ input[type=checkbox]:checked + .checkbox::after {
 	font-style: italic;
 	align-content: center;
 }
+
+.thumb {}
 </style>
 <script type="text/javascript">
 
@@ -332,7 +334,7 @@ function draw(sm,sx) {
 		for (var j=1;j<m.length;j++){
 			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[mix[i]])==0)) {ok=false};};
 		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
-				document.write ("<img src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")'>&nbsp;");
+				document.write ("<img class='thumb' src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")'>&nbsp;");
 				count = count + 1;
 				chosen[count]=mix[i];}
 				if (count==4||i==55) {
@@ -486,7 +488,7 @@ var clear = document.getElementsByClassName("button")[0];
 
 <div class="actionbar">
 <div class="drawer"><div class="flare"><img src="flare.png"></div><div class="dicon"><img id="drawer" src="ic_drawer.png"></div></div>
-<div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeines <span id="mf"></span></div>
+<div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div>
 <div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="male.png"></div></div>
 <div class="help"><div class="flare"><img src="flare.png"></div><div class="hicon"><img id="help" src="ic_action_help.png"></div></div>
 <div class="searchicon"><div class="flare"><img src="flare.png"></div><div class="schicon"><img id="search" src="ic_action_search.png"></div></div>

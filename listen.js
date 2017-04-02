@@ -92,10 +92,27 @@ function clearFunc() {
 
 function sexChange() {
 	var sex = sessionStorage.getItem("storedsex");
-	if (sex == "m") {sessionStorage.setItem("storedsex","f");} 
+	if (sex == "m") {sessionStorage.setItem("storedsex","f");
+			if (sessionStorage.getItem("storedmaskm")!=0){
+			var x = document.getElementsByClassName("thumb");
+			for (var i=0; i<x.length;i++) {y=x[i].src;
+					y=y.substring(0,y.length-5)+".jpg";
+					x[i].src=y;}
+			document.getElementById("mf").innerHTML="females";
+			} else {
+			document.location.assign("main.htm");}
+	} 
 	if (sex == "f") {sessionStorage.setItem("storedsex","m");
- 			        document.getElementById("sexicon").src="female.png"; }
-	document.location.assign("main.htm");
+ 			 document.getElementById("sexicon").src="female.png";
+			if (sessionStorage.getItem("storedmask")!=0){
+			var x = document.getElementsByClassName("thumb");
+			for (var i=0; i<x.length;i++) {y=x[i].src;
+					y=y.substring(0,y.length-4)+"m.jpg";
+					x[i].src=y;}
+			document.getElementById("mf").innerHTML="males";
+			} else {
+			document.location.assign("main.htm");}
+	}
 }
 
 function openhelp() {
