@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openFunc() {
 	var s=1;
+	if (sex == sessionStorage.getItem("storedsex")){
 	if (sex=='f'){var mask = sessionStorage.getItem("storedmask");
 			s=19;}
 	else {var mask = sessionStorage.getItem("storedmaskm");
@@ -63,6 +64,10 @@ function openFunc() {
 					document.getElementById('myModal').style.display = "none";
 					document.getElementById('modalOverlay').style.display = "none";
 					document.location.reload(true);}
+	} else {
+		sessionStorage.setItem("drawerclick","y");
+		document.location.assign("main.htm");
+	}
 };
 
 function closeFunc() {
@@ -103,7 +108,7 @@ function sexChange() {
 			document.location.assign("main.htm");}
 	} 
 	if (sex == "f") {sessionStorage.setItem("storedsex","m");
- 			 document.getElementById("sexicon").src="female.png";
+ 			document.getElementById("sexicon").src="female.png";
 			if (sessionStorage.getItem("storedmask")!=0){
 			var x = document.getElementsByClassName("thumb");
 			for (var i=0; i<x.length;i++) {y=x[i].src;
