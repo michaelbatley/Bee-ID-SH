@@ -65,7 +65,7 @@ function openFunc() {
 					document.getElementById('modalOverlay').style.display = "none";
 					document.location.reload(true);}
 	} else {
-		sessionStorage.setItem("drawerclick","y");
+		sex = sessionStorage.getItem("storedsex");
 		document.location.assign("main.htm");
 	}
 };
@@ -98,6 +98,7 @@ function clearFunc() {
 function sexChange() {
 	var sex = sessionStorage.getItem("storedsex");
 	if (sex == "m") {sessionStorage.setItem("storedsex","f");
+ 			document.getElementById("sexicon").src="female.png";
 			if (sessionStorage.getItem("storedmaskm")!=0){
 			var x = document.getElementsByClassName("thumb");
 			for (var i=0; i<x.length;i++) {y=x[i].src;
@@ -108,7 +109,7 @@ function sexChange() {
 			document.location.assign("main.htm");}
 	} 
 	if (sex == "f") {sessionStorage.setItem("storedsex","m");
- 			document.getElementById("sexicon").src="female.png";
+ 			document.getElementById("sexicon").src="male.png";
 			if (sessionStorage.getItem("storedmask")!=0){
 			var x = document.getElementsByClassName("thumb");
 			for (var i=0; i<x.length;i++) {y=x[i].src;
@@ -151,3 +152,4 @@ function sortbysize(){
 	sessionStorage.setItem("storedmode",2);
 	document.location.assign("main.htm");
 }
+

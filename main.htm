@@ -306,7 +306,7 @@ function draw(sm,sx) {
 	var m = new Array();
 	var localmask = new Array();
 	if (sx=="m") {subscript = "m";
-		     	document.getElementById("sexicon").src="female.png";
+		     	document.getElementById("sexicon").src="male.png";
 			document.getElementById("mf").innerHTML="males";
 				for (var i=1; i<mchcol.length;i++){
     				m[i]=sm & (Math.pow(2,mchcol[i])-Math.pow(2,mchcol[i-1]));
@@ -316,7 +316,7 @@ function draw(sm,sx) {
 		     	}
 		 }
 	else {subscript = "";
-		  	document.getElementById("sexicon").src="male.png";
+		  	document.getElementById("sexicon").src="female.png";
 			document.getElementById("mf").innerHTML="females";
 				for (var i=1; i<chcol.length;i++){
     				m[i]=sm & (Math.pow(2,chcol[i])-Math.pow(2,chcol[i-1]));
@@ -489,7 +489,7 @@ var clear = document.getElementsByClassName("button")[0];
 <div class="actionbar">
 <div class="drawer"><div class="flare"><img src="flare.png"></div><div class="dicon"><img id="drawer" src="ic_drawer.png"></div></div>
 <div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div>
-<div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="male.png"></div></div>
+<div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="female.png"></div></div>
 <div class="help"><div class="flare"><img src="flare.png"></div><div class="hicon"><img id="help" src="ic_action_help.png"></div></div>
 <div class="searchicon"><div class="flare"><img src="flare.png"></div><div class="schicon"><img id="search" src="ic_action_search.png"></div></div>
 <div class="sort"><div class="flare"><img src="flare.png"></div><div class="srticon"><img id="sort" src="ic_action_sort.png"></div></div></div>
@@ -522,6 +522,7 @@ if (mode==2) {
 } 
 if (sex=='f'){draw(searchmask,sex);}
 else {draw(searchmaskm,sex)};
+
 </script>
 </BODY>
 </HTML>
