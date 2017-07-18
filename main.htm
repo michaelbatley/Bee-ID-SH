@@ -290,7 +290,6 @@ function undim(x) {
 
 function jumpto(x) {
 	if ((x<17)||(x>23)) {document.location.assign(sp[x]+".htm")}
-	else {document.location.assign("heterapoides.htm")};
 }
 
 function openhelp() {
@@ -302,11 +301,14 @@ function draw(sm,sx) {
 	var ok;
 	var chosen=new Array()
 	var subscript="";
-	var sh = screen.height-225;
+	var sh = screen.height-250;
 	var m = new Array();
 	var localmask = new Array();
+	var sw = screen.width;
+	if (sw>1024) {sc = 0.75} else {sc=0.95}; 
+	txtsc = sw/600;
 	if (sx=="m") {subscript = "m";
-		     	document.getElementById("sexicon").src="male.png";
+		     	document.getElementById("sexicon").src="female.png";
 			document.getElementById("mf").innerHTML="males";
 				for (var i=1; i<mchcol.length;i++){
     				m[i]=sm & (Math.pow(2,mchcol[i])-Math.pow(2,mchcol[i-1]));
@@ -316,7 +318,7 @@ function draw(sm,sx) {
 		     	}
 		 }
 	else {subscript = "";
-		  	document.getElementById("sexicon").src="female.png";
+		  	document.getElementById("sexicon").src="male.png";
 			document.getElementById("mf").innerHTML="females";
 				for (var i=1; i<chcol.length;i++){
     				m[i]=sm & (Math.pow(2,chcol[i])-Math.pow(2,chcol[i-1]));
@@ -450,7 +452,7 @@ function searchfunc(){
 <script type="text/javascript"  SRC="chars.js"></script>
 <script type="text/javascript"  SRC="malechars.js"></script>
 </HEAD>
-<body style="background-color:#000000; color:#FFFFFF; margin: auto;">
+<body style="background-color:#000000; color:#FFFFFF; margin: auto;" onload="scale()">
 
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -489,7 +491,7 @@ var clear = document.getElementsByClassName("button")[0];
 <div class="actionbar">
 <div class="drawer"><div class="flare"><img src="flare.png"></div><div class="dicon"><img id="drawer" src="ic_drawer.png"></div></div>
 <div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div>
-<div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="female.png"></div></div>
+<div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="male.png"></div></div>
 <div class="help"><div class="flare"><img src="flare.png"></div><div class="hicon"><img id="help" src="ic_action_help.png"></div></div>
 <div class="searchicon"><div class="flare"><img src="flare.png"></div><div class="schicon"><img id="search" src="ic_action_search.png"></div></div>
 <div class="sort"><div class="flare"><img src="flare.png"></div><div class="srticon"><img id="sort" src="ic_action_sort.png"></div></div></div>
