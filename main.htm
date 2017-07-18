@@ -149,15 +149,15 @@ input[type=checkbox]:checked + .checkbox::after {
 	position: absolute;
 	width: 64px;
 	top: 7px;
-	margin-left: 70px;
+	margin-left: 10%;
 }
 
 .maintitle {
 	position: absolute;
 	top: 15px;
 	font-family: Arial;
-	font-size: 250%;
-	margin-left: 15%;
+	font-size: 100%;
+	margin-left: 20%;
 	background-color:#6AAFFD;
 }
 
@@ -246,7 +246,7 @@ input[type=checkbox]:checked + .checkbox::after {
 
 .container {
  	position: relative;
-	width: 1500px;
+	height:100%;
 	margin: auto;
 	display: block;
 	overflow: scroll;
@@ -257,8 +257,6 @@ input[type=checkbox]:checked + .checkbox::after {
 .scrollitem {
 	position: relative;
 	margin:inherit;
-	width: 1300px;
-	height: 3000px;
 }
 
 .images {
@@ -268,12 +266,11 @@ input[type=checkbox]:checked + .checkbox::after {
 }
 
 .caption {
-	display: block;
-	position: absolute;
-	top: 325px;
-	width: 320px;
+	display: inline-block;
+	position: relative;
+	width: 24%;
 	font-style: italic;
-	align-content: center;
+	text-align: center;
 }
 
 .thumb {}
@@ -290,6 +287,12 @@ function undim(x) {
 
 function jumpto(x) {
 	if ((x<17)||(x>23)) {document.location.assign(sp[x]+".htm")}
+}
+
+function scale() {
+	document.getElementById("mtitle").style.fontSize=txtsc*100+"%";
+	document.getElementById("mtitle").style.top=(35-txtsc*10)+"px";
+	document.getElementById("myModal").style.display = "none";
 }
 
 function openhelp() {
@@ -327,7 +330,7 @@ function draw(sm,sx) {
 		     		localmask[i]=mask[i];
 		     	}
 	}
-	document.write("<div class='container' id='mainpage' style = 'height: " + sh + "px'><div class='scrollitem'><div class='images'>");
+	document.write("<div class='container' id='mainpage' style = 'height:" + sh + "px; width:"+ sc*sw+"px'><div class='scrollitem'><div class='images'>");
 	for (var i=0;i<56;i++){
 		allow[i]=sessionStorage.getItem("allow"+ i);
 	}
@@ -336,12 +339,12 @@ function draw(sm,sx) {
 		for (var j=1;j<m.length;j++){
 			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[mix[i]])==0)) {ok=false};};
 		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
-				document.write ("<img class='thumb' src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")'>&nbsp;");
+				document.write ("<img class='thumb' src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")' style='width:24.5%'>&nbsp;");
 				count = count + 1;
 				chosen[count]=mix[i];}
 				if (count==4||i==55) {
 					document.write("<BR>");
-					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='left:"+(100+(j-1)*322)+"px;'>"+n[chosen[j]]+"</span>");}
+					for (var j=1; j<(count+1); j++) {document.write ("<span class='caption' style='font-size:75%'>"+n[chosen[j]]+"</span>");}
 				count = 0;
 				document.write("<BR><BR></div>");
 				document.write("<div class='images'>");
@@ -490,7 +493,7 @@ var clear = document.getElementsByClassName("button")[0];
 
 <div class="actionbar">
 <div class="drawer"><div class="flare"><img src="flare.png"></div><div class="dicon"><img id="drawer" src="ic_drawer.png"></div></div>
-<div class="icon"><img src="myst.png"></div><div class="maintitle">Sydney hylaeine <span id="mf"></span></div>
+<div class="icon"><img src="myst.png"></div><div class="maintitle" id="mtitle">Sydney hylaeine <span id="mf"></span></div>
 <div class="sex"><div class="flare"><img src="flare.png"></div><div class="sicon"><img id="sexicon" src="male.png"></div></div>
 <div class="help"><div class="flare"><img src="flare.png"></div><div class="hicon"><img id="help" src="ic_action_help.png"></div></div>
 <div class="searchicon"><div class="flare"><img src="flare.png"></div><div class="schicon"><img id="search" src="ic_action_search.png"></div></div>
