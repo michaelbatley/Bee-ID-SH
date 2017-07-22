@@ -330,7 +330,7 @@ function draw(sm,sx) {
 		     		localmask[i]=mask[i];
 		     	}
 	}
-alert (sw);
+
 	document.write("<div class='container' style = 'height:" + sh + "px; width:"+ sc*sw+"px'><div class='scrollitem'><div class='images'>");
 	for (var i=0;i<56;i++){
 		allow[i]=sessionStorage.getItem("allow"+ i);
@@ -340,7 +340,7 @@ alert (sw);
 		for (var j=1;j<m.length;j++){
 			if ((allow[mix[i]]!="0")||(m[j]!=0)&&((m[j]&localmask[mix[i]])==0)) {ok=false};};
 		if (ok) {filename[i] = ""+sp[mix[i]]+ subscript +".jpg";
-				document.write ("<img class='thumb' src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")' style='width:24.5%'>&nbsp;");
+				document.write ("<img class='thumb' src='"+filename[i]+"' onmouseover='dim(this)' onmouseout='undim(this)' onclick='jumpto("+ mix[i] +")' style='width:24%'>&nbsp;");
 				count = count + 1;
 				chosen[count]=mix[i];}
 				if (count==4||i==55) {
