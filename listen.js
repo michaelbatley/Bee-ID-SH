@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  window.addEventListener("load", drawerFunc);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("drawer").addEventListener("click", openFunc);
 });
 
